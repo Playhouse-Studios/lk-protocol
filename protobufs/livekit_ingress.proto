@@ -45,6 +45,8 @@ message CreateIngressRequest {
   string participant_name = 5;
   // metadata associated with the publishing participant
   string participant_metadata = 10;
+  // attributes associated with the publishing participant
+  map<string,string> participant_attributes = 12;
   // [depreacted ] whether to pass through the incoming media without transcoding, only compatible with some input types. Use `enable_transcoding` instead.
   bool bypass_transcoding = 8 [deprecated = true];
   // Whether to transcode the ingested media. Only WHIP supports disabling transcoding currently. WHIP will default to transcoding disabled. Replaces `bypass_transcoding. 
@@ -52,7 +54,7 @@ message CreateIngressRequest {
   IngressAudioOptions audio = 6;
   IngressVideoOptions video = 7;
 
-   // NEXT_ID: 12
+   // NEXT_ID: 13
 }
 
 enum IngressInput {
